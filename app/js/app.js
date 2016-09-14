@@ -1,1 +1,1 @@
-var theGoodFairyApp = angular.module('theGoodFairyApp', []);
+var thegoodfairyApp = angular.module('thegoodfairyApp', []);
