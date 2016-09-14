@@ -4,4 +4,9 @@ describe('thegoodfairy', function() {
     expect(browser.getTitle()).toEqual('The Good Fairy');
   });
 
+  it('has input box', function() {
+    browser.get('/');
+    $('#input').sendKeys('E12 5ET');
+  })
+
 });
