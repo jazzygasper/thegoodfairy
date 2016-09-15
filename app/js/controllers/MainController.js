@@ -1,10 +1,10 @@
 thegoodfairyApp.controller('MainController', function() {
   var self = this;
 
-  self.services = [];
+  self.charities = [];
 
-  self.findServices = function(){
-    self.services;
+  self.findCharities = function(postCode){
+    
   }
 
 });

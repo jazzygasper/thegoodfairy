@@ -2,17 +2,29 @@ describe('MainController', function() {
   beforeEach(module('thegoodfairyApp'));
 
   var ctrl;
+  var deferred, scope;
 
-  beforeEach(inject(function($controller) {
+  var postCode = "E12 5ET"
+  var charityData = "charityData"
+
+  beforeEach(inject(function($rootScope, $controller, $q) {
+    deferred = $q.defer();
+
+    scope = $rootScope;
+
   ctrl = $controller('MainController');
 
-}));
+  }));
 
 
   it('starts with empty array', function(){
-    // scope.$apply();
-    ctrl.findServices();
-    expect(ctrl.services).toEqual([]);
+    expect(ctrl.charities).toEqual([]);
+  });
+
+  it('fetches charity data based on a postcode using a promise', function() {
+    ctrl.findCharities(postCode);
+    scope.$apply();
+    expect(ctrl.charities).toEqual(charityData);
   });
 
 
