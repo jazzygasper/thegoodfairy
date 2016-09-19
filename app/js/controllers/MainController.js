@@ -4,7 +4,7 @@ thegoodfairyApp.controller('MainController', function() {
   self.charities = [];
 
   self.findCharities = function(postCode){
-    
+
   }
 
 });
