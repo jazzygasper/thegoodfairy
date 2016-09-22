@@ -4,7 +4,7 @@ describe('MainController', function() {
   var ctrl;
   var deferred, scope;
 
-  var postCode = "E12 5ET"
+  var postcode = "E12 5ET"
   var charityData = "charityData"
 
   beforeEach(inject(function($rootScope, $controller, $q) {
@@ -22,7 +22,7 @@ describe('MainController', function() {
   });
 
   it('fetches charity data based on a postcode using a promise', function() {
-    ctrl.findCharities(postCode);
+    ctrl.findCharities(postcode);
     scope.$apply();
     expect(ctrl.charities).toEqual(charityData);
   });

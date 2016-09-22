@@ -1,14 +1,17 @@
-gitCoreApp.service('CharitySearchService', ['$http', function($http){
+thegoodfairyApp.service('CharitySearchService', ['$http', function($http){
   var self = this;
 
-  self.searchFor = function(username) {
-    return $http.get('')
-    .then(_handleResponseFromJson);
+  self.getData = function(postcode){
+    return postcode.map(_getApiData);
   };
 
-  function _handleResponseFromJson(response) {
-    return response.data.items.map(function(searchResults){
-      return searchResults.name;
-    });
-  };
+  function _getApiData(postcode){
+    return $http.get('http://api.postcodes.io/postcodes/' + postcode);
+  }
+
+  function _handleResponseFromApi(response){
+    var postcodeData = response.data;
+    return ({lat: postcodeData.latitude,
+            long: postcodeData.longitude});
+  }
 }]);

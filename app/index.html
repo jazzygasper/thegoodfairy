@@ -5,11 +5,20 @@
    <script src="bower_components/angular/angular.js"></script>
    <script src="js/app.js"></script>
    <script src="js/controllers/MainController.js"></script>
+   <script src="js/services/CharitySearchService.js"></script>
    <title>The Good Fairy</title>
  </head>
  <body>
-   <div>
-     <input id='input' type='text' ng-model='postCode' placeholder="Find Me">
+   <div id="charities" ng-controller="MainController as controller">
+     <input id='Input' type='text' ng-model='postcode'>
+     <button id='Submit' ng-click='controller.findCharities(postcode)'>Submit</button>
+     <ul>
+       <li ng-repeat='charity in controller.charity'>
+         <p class="postcode">{{ charities.postcode }}</p>
+         <p>lat: <span class="repos">{{ charities.lat }}</span></p>
+         <p>long: <span class="followers">{{ charities.long }}</span></p>
+       </li>
+     </ul>
    </div>
  </body>
 </html>
