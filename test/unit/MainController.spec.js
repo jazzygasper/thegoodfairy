@@ -1,18 +1,23 @@
 describe('MainController', function() {
   beforeEach(module('thegoodfairyApp'));
 
-  var ctrl;
+  var ctrl, CharitySearchService;
   var deferred, scope;
 
-  var postcode = "E12 5ET"
-  var charityData = "charityData"
+  var postcode = "e125et"
+  var charityData = [{ "lat": "51.5613656682057"},{ "long": "0.0392815942492772"}];
 
   beforeEach(inject(function($rootScope, $controller, $q) {
     deferred = $q.defer();
 
+    CharitySearchService = jasmine.createSpyObj('CharitySearchService', ['getData']);
+    CharitySearchService.getData.and.returnValue($q.when(postcode));
+
     scope = $rootScope;
 
-  ctrl = $controller('MainController');
+  ctrl = $controller('MainController', {
+    CharitySearchService: CharitySearchService
+  });
 
   }));
 

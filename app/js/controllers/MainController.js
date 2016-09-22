@@ -5,13 +5,15 @@ thegoodfairyApp.controller('MainController',
   self.charities = [];
 
   self.findCharities = function(postcode){
-    CharitySearchService.getData(response, function(results) {
-      _storeGitUserData(results);
-  });
-}
+    console.log(self.charities);
+    CharitySearchService.getData(postcode)
+      .then(_storePostcodeData)
+  };
 
   function _storePostcodeData(response){
-  self.charities.push(response);
-}
+    console.log('storing postcode data');
+    console.log(response);
+    self.charities.push(response);
+  }
 
 }]);

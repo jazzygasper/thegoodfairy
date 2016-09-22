@@ -6,7 +6,7 @@ describe('thegoodfairy', function() {
 
   it('has input box', function() {
     browser.get('/');
-    $('#input').sendKeys('E12 5ET');
+    $('#input').sendKeys('E125ET');
   })
 
 });

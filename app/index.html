@@ -10,13 +10,12 @@
  </head>
  <body>
    <div id="charities" ng-controller="MainController as controller">
-     <input id='Input' type='text' ng-model='postcode'>
-     <button id='Submit' ng-click='controller.findCharities(postcode)'>Submit</button>
+     <input id='input' type='text' ng-model='postcode'>
+     <button id='submit' ng-click='controller.findCharities(postcode)'>Submit</button>
      <ul>
-       <li ng-repeat='charity in controller.charity'>
-         <p class="postcode">{{ charities.postcode }}</p>
-         <p>lat: <span class="repos">{{ charities.lat }}</span></p>
-         <p>long: <span class="followers">{{ charities.long }}</span></p>
+       <li ng-repeat='charity in controller.charities'>
+         <p>lat: <span class="lat">{{ charity.lat }}</span></p>
+         <p>long: <span class="long">{{ charity.long }}</span></p>
        </li>
      </ul>
    </div>

@@ -12,7 +12,7 @@ describe('CharitySearchService', function() {
 
   it('Converts the postcode to a geo location', function(){
     httpBackend.expectGET('http://api.postcodes.io/postcodes/e125et').respond(searchData);
-    UserSearchService.searchFor('E12 5ET').then(function(results){
+    CharitySearchService.getData('e125et').then(function(results){
       expect(results).toEqual(['51.5613656682057','0.0392815942492772']);
     });
 

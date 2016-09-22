@@ -2,16 +2,14 @@ thegoodfairyApp.service('CharitySearchService', ['$http', function($http){
   var self = this;
 
   self.getData = function(postcode){
-    return postcode.map(_getApiData);
+    return $http.get('http://api.postcodes.io/postcodes/' + postcode)
+    .then(_handleResponseFromApi);
   };
 
-  function _getApiData(postcode){
-    return $http.get('http://api.postcodes.io/postcodes/' + postcode);
-  }
-
-  function _handleResponseFromApi(response){
-    var postcodeData = response.data;
-    return ({lat: postcodeData.latitude,
-            long: postcodeData.longitude});
-  }
+  function _handleResponseFromApi(response) {
+    console.log("handeling response fron api");
+    console.log(response.data.result.latitude);
+    return {lat: response.data.result.latitude,
+            long: response.data.result.longitude}
+  };
 }]);
