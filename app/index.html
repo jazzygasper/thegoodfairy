@@ -5,17 +5,17 @@
    <script src="bower_components/angular/angular.js"></script>
    <script src="js/app.js"></script>
    <script src="js/controllers/MainController.js"></script>
-   <script src="js/services/CharitySearchService.js"></script>
+   <script src="js/services/GeographicSearchService.js"></script>
    <title>The Good Fairy</title>
  </head>
  <body>
    <div id="charities" ng-controller="MainController as controller">
      <input id='input' type='text' ng-model='postcode'>
-     <button id='submit' ng-click='controller.findCharities(postcode)'>Submit</button>
+     <button id='submit' ng-click='controller.findGeographicCoordinates(postcode)'>Submit</button>
      <ul>
-       <li ng-repeat='charity in controller.charities'>
-         <p>lat: <span class="lat">{{ charity.lat }}</span></p>
-         <p>long: <span class="long">{{ charity.long }}</span></p>
+       <li ng-repeat='geographicCoordinates in controller.geographicCoordinates'>
+         <p>lat: <span class="lat">{{ geographicCoordinates.lat }}</span></p>
+         <p>long: <span class="long">{{ geographicCoordinates.long }}</span></p>
        </li>
      </ul>
    </div>

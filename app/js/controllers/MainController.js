@@ -1,19 +1,19 @@
 thegoodfairyApp.controller('MainController',
-  ['CharitySearchService', function(CharitySearchService) {
+  ['GeographicSearchService', function(GeographicSearchService) {
   var self = this;
 
-  self.charities = [];
+  self.geographicCoordinates = [];
 
-  self.findCharities = function(postcode){
-    console.log(self.charities);
-    CharitySearchService.getData(postcode)
+  self.findGeographicCoordinates = function(postcode){
+    console.log(self.geographicCoordinates);
+    GeographicSearchService.getData(postcode)
       .then(_storePostcodeData)
   };
 
   function _storePostcodeData(response){
     console.log('storing postcode data');
     console.log(response);
-    self.charities.push(response);
-  }
+    self.geographicCoordinates.push(response);
+}
 
 }]);
